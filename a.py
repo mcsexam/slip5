@@ -1,28 +1,19 @@
-import nltk
-from nltk.stem import WordNetLemmatizer
-from nltk.tokenize import word_tokenize
+my_list = [10, 20, 30, 40, 50]
 
-try:
-    WordNetLemmatizer()
-except LookupError:
-    print("Downloading NLTK resources (punkt, wordnet)...")
-    nltk.download('punkt')
-    nltk.download('wordnet')
-    nltk.download('omw-1.4')
+print(f"Original list: {my_list}")
 
-def lemmatize_text(text):
-    lemmatizer = WordNetLemmatizer()
-    words = word_tokenize(text)
-    lemmatized_words = [lemmatizer.lemmatize(word) for word in words]
-    lemmatized_text = " ".join(lemmatized_words)
-    return lemmatized_text, words, lemmatized_words
+my_list.append(60)
+print(f"After append(60): {my_list}")
 
-input_text = "The quick brown foxes were running and jumped over the sleeping dogs. She is having great ideas."
+my_list.insert(1, 15)
+print(f"After insert(1, 15): {my_list}")
 
-if __name__ == "__main__":
-    print(f"Original Text: {input_text}")
-    final_text, tokens, lemmas = lemmatize_text(input_text)
-    print("\n--- Results ---")
-    print(f"Tokenized Words: {tokens}")
-    print(f"Lemmatized Words: {lemmas}")
-    print(f"\nLemmatized Text: {final_text}")
+my_list.remove(30)
+print(f"After remove(30): {my_list}")
+
+popped_element = my_list.pop(2)
+print(f"After pop(2): {my_list}")
+print(f"Popped element: {popped_element}")
+
+my_list.sort()
+print(f"After sort(): {my_list}")
